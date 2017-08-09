@@ -1,0 +1,24 @@
+.carousel-item {
+    height:0;
+    background-position: center;
+    background-size: cover;
+    overflow: visible;
+    padding-top:43%;
+    //@media screen and (min-width: map-get($grid-breakpoints, sm)){
+    //    height: 100vh;
+    //}
+    @media screen and (min-width: map-get($grid-breakpoints, md)){
+        background-attachment: fixed;
+    }
+    //@media screen and (min-width: map-get($grid-breakpoints, lg)){
+    //    height: 100vh;
+    //}
+}
+
+.carousel-caption {
+    display:none;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-image: none !important;
+}
