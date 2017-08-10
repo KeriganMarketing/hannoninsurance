@@ -10,6 +10,8 @@ include('modules/social/sociallinks.php');
 include('modules/testimonials/testimonials.php');
 include('modules/layouts/Layouts.php');
 include('modules/slider/Slider.php');
+include('modules/team/Team.php');
+include('modules/listings/BusinessListings.php');
 
 $socialLinks = new SocialSettingsPage();
 if(is_admin()) {
@@ -29,3 +31,14 @@ $layouts->createDefaultFormats();
 $slider = new Slider();
 $slider->createPostType();
 $slider->createAdminColumns();
+
+$team = new Team();
+$team->createPostType();
+$team->createAdminColumns();
+$team->createShortcode();
+
+$team = new BusinessListings();
+$team->createPostType();
+$team->createAdminColumns();
+$team->createShortcode();
+

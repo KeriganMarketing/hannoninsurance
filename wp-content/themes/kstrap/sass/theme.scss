@@ -146,6 +146,8 @@ div#carousel-home-page-slider {
   cursor: pointer;
 }
 
+/** MID **/
+
 .hero-body {
   padding: 3rem 1.5rem 3rem;
   @media screen and (min-width: map-get($grid-breakpoints, md)) {
@@ -178,12 +180,74 @@ div#carousel-home-page-slider {
 }
 
 #mid .content {
-  padding: 1rem 0;
+  padding: 2rem 0;
 }
 
 .sidebar {
   padding-bottom: 2rem;
 }
+
+/** TEAM **/
+.team-member {
+  padding: 1rem 0;
+  margin: 1rem 0;
+  border-bottom: 1px solid #D0C9B6;
+}
+
+.team-member .team-member-image img {
+  min-width: 175px;
+  border: 4px solid #D0C9B6;
+  margin-bottom: 1rem;
+}
+
+.team.list .team-member:last-child {
+  border:none;
+}
+
+.team-member .team-headline .aka {
+  color: #8A784A;
+  font-size: 1rem;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.team-member .team-title {
+  margin: .5rem 0 .25rem;
+  font-style: italic;
+}
+
+/** COMPANIES **/
+.business-listing {
+  padding: 1rem 0 2rem;
+  margin: 1rem 0;
+  border-bottom: 1px solid #D0C9B6;
+}
+
+.business-listing .business-listing-image img {
+  margin-bottom: 1rem;
+  @media screen and (min-width: map-get($grid-breakpoints, md)) {
+    margin-bottom: 0;
+  }
+}
+
+.business-listings.list .business-listing:last-child {
+  border:none;
+}
+
+.business-listing .listing-label {
+  display: inline-block;
+  padding:0 .1rem;
+  color: $gray-light;
+  font-size:.9em;
+}
+
+.business-listing p {
+  margin:0;
+  padding:.5rem 0;
+}
+
+/** FOOTER **/
 
 #bot {
   position: relative;

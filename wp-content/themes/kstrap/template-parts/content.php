@@ -7,6 +7,12 @@
  */
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
 $subhead = ($post->page_information_subhead != '' ? $post->page_information_subhead : '');
+$sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : '');
+
+$postterms = get_the_terms( $post->ID,'layout' );
+$layout = ($postterms ? array_pop($postterms) : false);
+$layout = ($layout ? $layout->slug : false);
+
 ?>
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
@@ -25,20 +31,33 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
         </section>
         <section id="content" class="content section">
             <div class="container">
-                <div class="entry-content">
-                    <?php
-                    the_content( sprintf(
-                    /* translators: %s: Name of current post. */
-                        wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'kmaevent' ), array( 'span' => array( 'class' => array() ) ) ),
-                        the_title( '<span class="screen-reader-text">"', '"</span>', false )
-                    ) );
+                <div class="row justify-content-center align-items-center">
+                    <div class="col<?php echo ($layout != 'sidebar' ? '-lg-10' : ''); ?>">
+                        <div class="entry-content">
+                            <?php
 
-                    wp_link_pages( array(
-                        'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kmaevent' ),
-                        'after'  => '</div>',
-                    ) );
-                    ?>
-                </div><!-- .entry-content -->
+                                the_content( sprintf(
+                                /* translators: %s: Name of current post. */
+                                    wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'kstrap' ), array( 'span' => array( 'class' => array() ) ) ),
+                                    the_title( '<span class="screen-reader-text">"', '"</span>', false )
+                                ) );
+
+                                wp_link_pages( array(
+                                    'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kstrap' ),
+                                    'after'  => '</div>',
+                                ) );
+
+                            ?>
+                        </div>
+                    </div>
+                    <?php if($layout == 'sidebar'){ ?>
+                    <div class="col-md-4">
+                        <div class="sidebar">
+                            <?php echo $sidebar; ?>
+                        </div>
+                    </div>
+                    <?php } ?>
+                </div>
             </div>
         </section>
     </article><!-- #post-## -->
