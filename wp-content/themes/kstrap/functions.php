@@ -41,7 +41,8 @@ function kstrap_setup() {
 	<?php }
 	add_action( 'wp_head', 'kstrap_inline' );
 
-	wp_register_script( 'scripts', get_template_directory_uri() . '/app.js', array(), '0.0.1', true );
+    wp_deregister_script( 'wp-embed' );
+	wp_register_script( 'scripts', get_template_directory_uri() . '/app.js', array(), '0.0.1', false );
 
 	//Add meta boxes for contact info to home page
     $frontpage_id = get_option('page_on_front');
@@ -76,7 +77,6 @@ add_action( 'after_setup_theme', 'kstrap_setup' );
 
 function kstrap_scripts() {
 	wp_enqueue_script( 'scripts' );
-	//wp_enqueue_style( 'style', get_stylesheet_uri() );
 }
 add_action( 'wp_enqueue_scripts', 'kstrap_scripts' );
 

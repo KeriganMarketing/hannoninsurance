@@ -126,7 +126,7 @@ class Slider {
         $i = 0;
         foreach($slides as $slide){
 
-            $slidercontent .= '<div class="carousel-item full-bg '.($i == 0 ? ' active' : '').'" style="background-image:url('.$slide['photo'].')" >
+            $slidercontent .= '<div class="carousel-item full-bg '.($i == 0 ? ' active' : '').'" style="background-image:url('.$slide['photo'].')" role="option" >
                     <div class="carousel-caption d-md-block">'
                     . ($slide['headline'] != '' ? '<h2 class="slider-headline">'.$slide['headline'].'</h2>' : '')
                     . ($slide['caption'] != '' ? '<p class="slider-subtitle">'.$slide['caption'].'</p>' : '')
@@ -152,7 +152,7 @@ class Slider {
             ' . $slidercontent . '
             </div>
             
-            <!--<a class="carousel-control-prev" href="#carousel-' . $category . '" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carousel-' . $category . '" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 4.5 8" style="enable-background:new 0 0 4.5 8;" xml:space="preserve">
                 <path d="M4,0L0,4l4,4l0.5-0.5L1,4l3.5-3.5L4,0z"/>
@@ -165,7 +165,7 @@ class Slider {
                 <path d="M0.5,8l4-4l-4-4L0,0.5L3.5,4L0,7.5L0.5,8z"/>
                 </svg></span>
                 <span class="sr-only">Next</span>
-            </a>-->
+            </a>
             
         </div>';
 
