@@ -6,13 +6,20 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /index.php [L]
-
-    RewriteCond %{HTTP_ACCEPT} image/webp
-    RewriteCond %{REQUEST_FILENAME} (.*)\.(jpe?g|png)$
-    RewriteCond %1\.webp -f
-    RewriteRule (.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=accept:1]
-
 </IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule (.+)\.(jpe?g|png|gif)$ $1.webp [T=image/webp,E=accept:1]
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+
+AddType image/webp .webp
 
 # END WordPress
 <ifModule mod_gzip.c>
@@ -35,45 +42,6 @@ AddOutputFilterByType DEFLATE application/xhtml+xml
 AddOutputFilterByType DEFLATE application/rss+xml
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE application/x-javascript
-
-<IfModule mod_headers.c>
-
-    # 1 YEAR
-    <FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|js|css|swf|mp3|svg|woff|woff2|mp4|ogg|eot|ttf)$">
-    #Header set Cache-Control "max-age=31536000, public"
-    Header set Cache-Control "max-age=1, public"
-    </FilesMatch>
-
-    # 1 MONTH
-    <FilesMatch "\.(css)$">
-    #Header set Cache-Control "max-age=2592000, public"
-    Header set Cache-Control "max-age=1, public"
-    </FilesMatch>
-
-    # 1 DAY
-    <FilesMatch "\.(xml|txt)$">
-    #Header set Cache-Control "max-age=86400, public, must-revalidate"
-    Header set Cache-Control "max-age=1, public, must-revalidate"
-    </FilesMatch>
-
-    # 2 HOURS
-    <FilesMatch "\.(html|htm|php)$">
-    #Header set Cache-Control "max-age=7200, must-revalidate"
-    Header set Cache-Control "max-age=1, must-revalidate"
-    </FilesMatch>
-
-    Header unset Cache-Control
-    Header unset ETag
-    FileETag none
-
-</IfModule>
-
-<IfModule mod_headers.c>
-  Header append Vary Accept env=REDIRECT_accept
-</IfModule>
-
-AddType image/webp .webp
-
 
 ## BEGIN EXPIRES CACHING - JCH OPTIMIZE ##
 <IfModule mod_expires.c>
