@@ -1,5 +1,4 @@
 .idea/
-wp-content/themes/kstrap/node_modules/
 wp-config.php
 tags
 wp-content/themes/kstrap/vendor/
