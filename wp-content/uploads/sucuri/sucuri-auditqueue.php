@@ -21,3 +21,5 @@ exit(0);
 1502472233_3105:"Warning: kma, 127.0.0.1; Post moved to trash; ID: 148; name: ; status: publish"
 1502472233_717:"Notice: kma, 127.0.0.1; Customize_changeset status has been changed; details: ID: 148,Old status: publish,New status: trash,Title: "
 1502472234_1411:"Notice: kma, 127.0.0.1; Customize_changeset status has been changed; details: ID: 148,Old status: auto-draft,New status: publish,Title: "
+1502488825_8033:"Warning: kma, 127.0.0.1; Plugin deactivated: JCH Optimize (v2.1.0; jch-optimize\/jch-optimize.php)"
+1502488867_9229:"Warning: kma, 127.0.0.1; Plugin activated: Cache Enabler (v1.2.2; cache-enabler\/cache-enabler.php)"
