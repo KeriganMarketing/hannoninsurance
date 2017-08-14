@@ -4,3 +4,4 @@ tags
 wp-content/themes/kstrap/vendor/
 */cache/
 wp-content/uploads/sucuri/
+*error_log
