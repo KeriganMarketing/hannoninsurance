@@ -42,6 +42,10 @@ $layout = ($layout ? $layout->slug : false);
                                     the_title( '<span class="screen-reader-text">"', '"</span>', false )
                                 ) );
 
+                                if(is_page(11)){
+                                    include( locate_template('template-parts/quote-request-buttons.php') );
+                                }
+
                                 wp_link_pages( array(
                                     'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'kstrap' ),
                                     'after'  => '</div>',
