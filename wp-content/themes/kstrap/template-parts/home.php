@@ -23,20 +23,20 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
             <div class="row no-gutters">
                 <div id="quote-box" class="col-lg-5 col-xl-4 text-center">
                     <h2>GET A QUICK QUOTE</h2>
-                    <form method="get" action="/quote-request/">
+                    <form method="get" action="#" id="quote-select-form">
                         <div class="form-options">
                             <label class="custom-control custom-radio">
-                                <input id="autooption" name="quotetype" type="radio" class="custom-control-input" value="auto">
+                                <input id="autooption" name="quotetype" type="radio" class="custom-control-input" value="/quote-request/auto-insurance-quote-request/">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">AUTO</span>
                             </label>
                             <label class="custom-control custom-radio">
-                                <input id="homeownersoption" name="quotetype" type="radio" class="custom-control-input" value="homeowners">
+                                <input id="homeownersoption" name="quotetype" type="radio" class="custom-control-input" value="/quote-request/homeowners-insurance-quote-request/">
                                 <span class="custom-control-indicator"></span>
                                 <span class="custom-control-description">HOMEOWNERS</span>
                             </label>
                         </div>
-                        <button class="btn btn-lg btn-secondary btn-pill" type="submit" >GET QUOTE</button>
+                        <button class="btn btn-lg btn-secondary btn-pill" id="quote-request-submit">GET QUOTE</button>
                     </form>
                 </div>
             </div>
@@ -48,12 +48,12 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
                     <div class="col-md-8">
                         <div class="entry-content">
                             <?php
-                                echo ($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null);
-                                the_content( sprintf(
+                                echo($subhead!='' ? '<p class="subtitle">'.$subhead.'</p>' : null);
+                                the_content(sprintf(
                                 /* translators: %s: Name of current post. */
-                                    wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'kstrap' ), array( 'span' => array( 'class' => array() ) ) ),
-                                    the_title( '<span class="screen-reader-text">"', '"</span>', false )
-                                ) );
+                                    wp_kses(__('Continue reading %s <span class="meta-nav">&rarr;</span>', 'kstrap'), [ 'span' => [ 'class' => [] ] ]),
+                                    the_title('<span class="screen-reader-text">"', '"</span>', false)
+                                ));
                             ?>
                         </div>
                     </div>
@@ -67,4 +67,19 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
         </section>
     </article><!-- #post-## -->
 </div>
+
 <!--<modal v-if="isVisible" @close="isVisible = false"><div class="box" >Welcome!</div></modal>-->
+<script>
+    $("#quote-request-submit").on("click", function(e){
+        e.preventDefault();
+        var baseUrl = window.location.href;
+        if($("#autooption").is(":checked")){
+            window.location = baseUrl + "quote-request/auto-insurance-quote-request/";
+        }
+        else if($("#homeownersoption").is(":checked")){
+            window.location = baseUrl + "quote-request/homeowners-insurance-quote-request/";
+        }
+        else
+            alert("Please select the type of quote you want.");
+    });
+</script>

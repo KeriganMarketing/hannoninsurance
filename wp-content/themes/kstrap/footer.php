@@ -7,10 +7,10 @@
  */
 //$socialLinks = new SocialSettingsPage();
 $frontpage = get_option('page_on_front');
-$phonenumber = (get_post_meta($frontpage,contact_information_phone_number,true) != '' ? get_post_meta($frontpage,contact_information_phone_number,true) : '');
-$address = (get_post_meta($frontpage,contact_information_address,true) ? get_post_meta($frontpage,contact_information_address,true) : '');
-$faialogo = (get_post_meta($frontpage,contact_information_faia_logo,true) ? get_post_meta($frontpage,contact_information_faia_logo,true) : '');
-$tclogo = (get_post_meta($frontpage,contact_information_trusted_choice_logo,true) ? get_post_meta($frontpage,contact_information_trusted_choice_logo,true) : '');
+$phonenumber = (get_post_meta($frontpage, contact_information_phone_number, true) != '' ? get_post_meta($frontpage, contact_information_phone_number, true) : '');
+$address = (get_post_meta($frontpage, contact_information_address, true) ? get_post_meta($frontpage, contact_information_address, true) : '');
+$faialogo = (get_post_meta($frontpage, contact_information_faia_logo, true) ? get_post_meta($frontpage, contact_information_faia_logo, true) : '');
+$tclogo = (get_post_meta($frontpage, contact_information_trusted_choice_logo, true) ? get_post_meta($frontpage, contact_information_trusted_choice_logo, true) : '');
 ?>
     <div id="sticky-footer" class="unstuck">
         <div id="bot">
@@ -29,7 +29,7 @@ $tclogo = (get_post_meta($frontpage,contact_information_trusted_choice_logo,true
                     </div>
                     <div class="col-lg-6">
                         <?php wp_nav_menu(
-                            array(
+                            [
                                 'theme_location'  => 'footer-menu',
                                 'container'       => '',
                                 'container_id'    => 'navbar-footer',
@@ -37,7 +37,7 @@ $tclogo = (get_post_meta($frontpage,contact_information_trusted_choice_logo,true
                                 'fallback_cb'     => '',
                                 'menu_id'         => 'footer-menu',
                                 'walker'          => new WP_Bootstrap_Navwalker(),
-                            )
+                            ]
                         ); ?>
                     </div>
                     <div class="col-lg-3 text-center">
@@ -65,6 +65,5 @@ $tclogo = (get_post_meta($frontpage,contact_information_trusted_choice_logo,true
     </div>
 </div>
 <?php wp_footer(); ?>
-
 </body>
 </html>
