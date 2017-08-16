@@ -69,6 +69,13 @@ $layout = ($layout ? $layout->slug : false);
                     </div>
                 </div>
                 <?php } ?>
+                <?php if (is_page(54)) { ?>
+                    <div class="row">
+                        <div class="col">
+                            <?php include(locate_template('template-parts/auto-form.php')); ?>
+                        </div>
+                    </div>
+                <?php } ?>
             </div>
         </section>
     </article><!-- #post-## -->
