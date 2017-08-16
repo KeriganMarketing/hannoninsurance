@@ -255,6 +255,22 @@ div#carousel-home-page-slider {
   height: 1.5rem;
 }
 
+.form-horizontal {
+  .form-group h3,
+  .form-group h2 {
+    margin-top: 1rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  .radio-group {
+    padding: .75rem 0;
+  }
+}
+
 
 /** FOOTER **/
 

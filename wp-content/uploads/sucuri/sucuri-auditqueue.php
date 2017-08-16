@@ -9,3 +9,5 @@ exit(0);
 1502821722_0453:"Notice: kma, 127.0.0.1; Post status has been changed; details: ID: 153,Old status: new,New status: auto-draft,Title: Auto Draft"
 1502821748_7366:"Warning: kma, 127.0.0.1; Plugin deactivated: Cache Enabler (v1.2.2; cache-enabler\/cache-enabler.php)"
 1502821765_4883:"Warning: kma, 127.0.0.1; Plugin deactivated: Google Analytics for WordPress by MonsterInsights (v6.2.1; google-analytics-for-wordpress\/googleanalytics.php)"
+1502834220_769:"Notice: kma, 127.0.0.1; Page was updated; ID: 78; name: Homeowners Insurance Quote Request"
+1502837049_6753:"Notice: kma, 127.0.0.1; Page was updated; ID: 78; name: Homeowners Insurance Quote Request"
