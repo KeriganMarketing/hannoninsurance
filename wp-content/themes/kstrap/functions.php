@@ -10,6 +10,7 @@ require('vendor/autoload.php');
 require('inc/bootstrap-wp-navwalker.php');
 require('inc/cpt.php');
 require('inc/loadmodules.php');
+require('inc/Utilities/StateList.php');
 
 if (! function_exists('kstrap_setup')) :
 

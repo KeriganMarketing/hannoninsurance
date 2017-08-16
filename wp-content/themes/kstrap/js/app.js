@@ -5,3 +5,6 @@ global.Tether = tether;
 
 require('bootstrap');
 
+require("flatpickr");
+
+
