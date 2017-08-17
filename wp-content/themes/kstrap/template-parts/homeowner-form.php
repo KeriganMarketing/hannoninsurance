@@ -43,6 +43,8 @@ $formSubmitted     = ($formID == 'homeowners-quote' && $securityFlag == '' ? tru
 if ($formSubmitted) {
     $lead->addToDashboard($_POST);
     $lead->sendNotifications($_POST);
+
+    echo '<script> swal("Thank you!", "Someone from our staff will be in touch with you soon.", "success"); </script>';
 }
 ?>
 <form class="form-horizontal" name="quoteform" id="mainForm" method="post" enctype="multipart/form-data" action="<?php the_permalink(); ?>">
@@ -125,7 +127,11 @@ if ($formSubmitted) {
         </div>
     </div>
     <div class="row align-items-center">
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <div class="offset-md-3 col-md-10 ">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit Quote Request</button>
+            </div>
+        </div>
     </div>
 </form>
 
