@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package KMA
  * @subpackage kstrap

@@ -1,4 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Heebo:400,700|Zilla+Slab:500);.flatpickr-calendar {
+@import url(https://fonts.googleapis.com/css?family=Heebo:400,700|Zilla+Slab:500);
+.flatpickr-calendar {
   background: transparent;
   overflow: hidden;
   max-height: 0;
