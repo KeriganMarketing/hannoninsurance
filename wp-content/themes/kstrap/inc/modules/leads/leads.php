@@ -119,7 +119,7 @@ class kmaLeads
             'Email Address'     => $youremail,
             'Phone Number'      => $phone,
             'Address'           => $fullAddress,
-            'Quote Type'.       => $quoteType
+            'Quote Type'        => $quoteType
         ];
 
         $fontstyle          = 'font-family: sans-serif;';
@@ -278,11 +278,11 @@ class kmaLeads
         $headers .= 'MIME-Version: 1.0' . $eol;
 
         //noreply pass: raw9z.kvc@b*
-        $headers .      = 'Content-type: text/html; charset=utf-8' . $eol;
+        $headers       .= 'Content-type: text/html; charset=utf-8' . $eol;
         $emailcontent   = $templatetop . $eol . $eol;
-        $emailcontent . = '<h2>'.$emaildata['headline'].'</h2>';
-        $emailcontent . = '<p>'.$emaildata['introcopy'].'</p>';
-        $emailcontent . = $templatebot . $eol . $eol;
+        $emailcontent  .= '<h2>'.$emaildata['headline'].'</h2>';
+        $emailcontent  .= '<p>'.$emaildata['introcopy'].'</p>';
+        $emailcontent  .= $templatebot . $eol . $eol;
 
         mail($sendadmin['to'], $sendadmin['subject'], $emailcontent, $headers);
     }
