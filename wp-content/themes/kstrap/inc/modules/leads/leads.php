@@ -9,8 +9,8 @@
 
 class kmaLeads
 {
-    protected adminEmail;
-    protected domain;
+    protected $adminEmail;
+    protected $domain;
     /**
      * Leads constructor.
      */
