@@ -41,16 +41,6 @@ $layout = ($layout ? $layout->slug : false);
                                     wp_kses(__('Continue reading %s <span class="meta-nav">&rarr;</span>', 'kstrap'), array( 'span' => array( 'class' => array()))),
                                     the_title('<span class="screen-reader-text">"', '"</span>', false)
                                 ));
-
-                                if (is_page(11)) {
-                                    include(locate_template('template-parts/quote-request-buttons.php'));
-                                }
-
-                                wp_link_pages(array(
-                                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'kstrap'),
-                                    'after'  => '</div>',
-                                ));
-
                             ?>
                         </div>
                     </div>
@@ -62,19 +52,12 @@ $layout = ($layout ? $layout->slug : false);
                     </div>
                     <?php } ?>
                 </div>
-                <?php if (is_page(78)) { ?>
+                <?php if (is_page(11)) { ?>
                 <div class="row">
                     <div class="col">
                     <?php include(locate_template('template-parts/homeowner-form.php')); ?>
                     </div>
                 </div>
-                <?php } ?>
-                <?php if (is_page(54)) { ?>
-                    <div class="row">
-                        <div class="col">
-                            <?php include(locate_template('template-parts/auto-form.php')); ?>
-                        </div>
-                    </div>
                 <?php } ?>
             </div>
         </section>

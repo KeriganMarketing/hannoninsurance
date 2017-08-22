@@ -23,21 +23,8 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
             <div class="row no-gutters">
                 <div id="quote-box" class="col-lg-5 col-xl-4 text-center">
                     <h2>GET A QUICK QUOTE</h2>
-                    <form method="get" action="#" id="quote-select-form">
-                        <div class="form-options">
-                            <label class="custom-control custom-radio">
-                                <input id="autooption" name="quotetype" type="radio" class="custom-control-input" value="/quote-request/auto-insurance-quote-request/">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">AUTO</span>
-                            </label>
-                            <label class="custom-control custom-radio">
-                                <input id="homeownersoption" name="quotetype" type="radio" class="custom-control-input" value="/quote-request/homeowners-insurance-quote-request/">
-                                <span class="custom-control-indicator"></span>
-                                <span class="custom-control-description">HOMEOWNERS</span>
-                            </label>
-                        </div>
-                        <button class="btn btn-lg btn-secondary btn-pill" id="quote-request-submit">GET QUOTE</button>
-                    </form>
+                    <hr style="visibility: hidden;">
+                        <a class="btn btn-lg btn-secondary btn-pill" id="quote-request-submit" href="/quote-request">GET QUOTE</a>
                 </div>
             </div>
         </div>
@@ -69,17 +56,3 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
 </div>
 
 <!--<modal v-if="isVisible" @close="isVisible = false"><div class="box" >Welcome!</div></modal>-->
-<script>
-    $("#quote-request-submit").on("click", function(e){
-        e.preventDefault();
-        var baseUrl = window.location.href;
-        if($("#autooption").is(":checked")){
-            window.location = baseUrl + "quote-request/auto-insurance-quote-request/";
-        }
-        else if($("#homeownersoption").is(":checked")){
-            window.location = baseUrl + "quote-request/homeowners-insurance-quote-request/";
-        }
-        else
-            alert("Please select the type of quote you want.");
-    });
-</script>

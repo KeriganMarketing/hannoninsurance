@@ -6,31 +6,32 @@
  * @version 1.2
  */
 $frontpage = get_option('page_on_front');
-$phonenumber = (get_post_meta($frontpage,contact_information_phone_number,true) != '' ? get_post_meta($frontpage,contact_information_phone_number,true) : '');
-?><!DOCTYPE html>
+$phonenumber = (get_post_meta($frontpage, contact_information_phone_number, true) != '' ? get_post_meta($frontpage, contact_information_phone_number, true) : '');
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?> >
 <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport"
             content="width=device-width, initial-scale=1">
     <link rel="profile"
             href="http://gmpg.org/xfn/11">
-	<?php wp_head(); ?>
+    <?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?> >
-<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'kstrap' ); ?></a>
+<a class="skip-link screen-reader-text" href="#content"><?php _e('Skip to content', 'kstrap'); ?></a>
 <div id="app">
 <header id="top" class="header navbar-toggleable-lg">
     <div class="collapse navbar-collapse justify-content-center hidden-xl-up" id="mobilemenu">
-        <?php wp_nav_menu( array(
+        <?php wp_nav_menu([
             'theme_location'  => 'mobile-menu',
             'container'       => '',
             'menu_class'      => 'navbar-nav text-center justify-content-center',
             'fallback_cb'     => '',
             'menu_id'         => 'mobile-menu',
             'walker'          => new WP_Bootstrap_Navwalker(),
-        ) ); ?>
+        ]); ?>
     </div>
     <div class="container-fluid no-gutters hidden-md-up">
         <div class="row justify-content-center align-items-center no-gutters">
@@ -59,7 +60,7 @@ $phonenumber = (get_post_meta($frontpage,contact_information_phone_number,true) 
                 </a>
             </div>
             <div class="col-12 col-xl-8 hidden-lg-down">
-                <?php wp_nav_menu( array(
+                <?php wp_nav_menu([
                         'theme_location' => 'main-menu',
                         'container_class' => 'navbar',
                         'container_id'    => 'navbarMain',
@@ -67,7 +68,7 @@ $phonenumber = (get_post_meta($frontpage,contact_information_phone_number,true) 
                         'fallback_cb'     => '',
                         'menu_id'         => 'main-menu',
                         'walker'          => new WP_Bootstrap_Navwalker(),
-                    ) ); ?>
+                    ]); ?>
             </div>
 
             <div class="col-12 col-md-6 col-lg-8 col-xl-2 text-center hidden-sm-down text-md-right text-lg-right">

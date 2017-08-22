@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package KMA
  * @subpackage kstrap
@@ -10,12 +11,13 @@ include('modules/social/sociallinks.php');
 include('modules/testimonials/testimonials.php');
 include('modules/layouts/Layouts.php');
 include('modules/slider/Slider.php');
+include('modules/leads/leads.php');
 include('modules/team/Team.php');
 include('modules/listings/BusinessListings.php');
 
 $socialLinks = new SocialSettingsPage();
-if(is_admin()) {
-	$socialLinks->createPage();
+if (is_admin()) {
+    $socialLinks->createPage();
 }
 
 $testimonials = new Testimonials();
@@ -24,7 +26,7 @@ $testimonials->createAdminColumns();
 $testimonials->createShortcode();
 
 $layouts = new Layouts();
-$layouts->createPostType( );
+$layouts->createPostType();
 $layouts->createDefaultFormats();
 //$layouts->createLayout('two-column','two column page layout','twocol'); //does not work?
 
@@ -42,3 +44,6 @@ $team->createPostType();
 $team->createAdminColumns();
 $team->createShortcode();
 
+$leads = new kmaLeads();
+$leads->createPostType();
+$leads->createAdminColumns();
