@@ -83,20 +83,34 @@ if ($formSubmitted) {
     </div>
 
     <div class="row align-items-center">
-        <label for="youraddr1" class="col-md-3 control-label text-md-right">Physical Address<span class="req">*</span></label>
+        <label for="requestType" class="col-md-3 control-label text-md-right">Type of Quote:<span class="req">*</span></label>
+        <div class="col col-md-8 form-group" id="requestType" required>
+            <select id="quoteType" class="form-control col-md-6" name="requestType" required>
+                <option value="">--Select a type of quote--</option>
+                <?php
+                foreach ($insuranceTypes as $insuranceType) {
+                    echo '<option value="'.$insuranceType.'">'.$insuranceType.'</option>';
+                }
+                ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="row align-items-center" id="address-info">
+        <label for="youraddr1" class="col-md-3 control-label text-md-right">Insured Address</label>
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-6 form-group <?php echo($youraddr1 == '' && $_POST ? 'has-error' : ''); ?>" id="addr1">
-                    <input type="text" class="form-control" value="<?php echo $youraddr1; ?>" placeholder="Street" name="youraddr1" required>
+                    <input type="text" class="form-control" value="<?php echo $youraddr1; ?>" placeholder="Street" name="youraddr1" >
                 </div>
                 <div class="col-md-4 form-group <?php echo($youraddr2 == '' && $_POST ? 'has-error' : ''); ?>" id="addr2">
                     <input type="text" class="form-control" value="<?php echo $youraddr2; ?>" placeholder="Apt/Suite" name="youraddr2">
                 </div>
-                <div class="col-xs-7 col-md-4 form-group <?php echo($yourcity == '' && $_POST ? 'has-error' : ''); ?>" id="city" required>
-                    <input type="text" class="form-control" value="<?php echo($yourcity!='' && $_POST ? $yourcity : ''); ?>" placeholder="Marianna" name="yourcity" required>
+                <div class="col-xs-7 col-md-4 form-group <?php echo($yourcity == '' && $_POST ? 'has-error' : ''); ?>" id="city" >
+                    <input type="text" class="form-control" value="<?php echo($yourcity!='' && $_POST ? $yourcity : ''); ?>" placeholder="City" name="yourcity" >
                 </div>
-                <div class="col-xs-6 col-md-2 form-group <?php echo($yourstate == '' && $_POST ? 'has-error' : ''); ?>" id="state" required>
-                    <select class="form-control" name="yourstate" required>
+                <div class="col-xs-6 col-md-2 form-group <?php echo($yourstate == '' && $_POST ? 'has-error' : ''); ?>" id="state" >
+                    <select class="form-control" name="yourstate" >
                         <option value="FL" selected>FL</option>
                         <?php
                         foreach ($states as $abbreviation => $fullName) {
@@ -113,19 +127,7 @@ if ($formSubmitted) {
             </div>
         </div>
     </div>
-    <div class="row align-items-center">
-        <label for="requestType" class="col-md-3 control-label text-md-right">Type of Quote:<span class="req">*</span></label>
-        <div class="col col-md-8 form-group id="requestType" required>
-            <select class="form-control col-md-6" name="requestType" required>
-                <option value="">--Select a type of quote--</option>
-                <?php
-                foreach ($insuranceTypes as $insuranceType) {
-                    echo '<option value="'.$insuranceType.'">'.$insuranceType.'</option>';
-                }
-                ?>
-            </select>
-        </div>
-    </div>
+
     <div class="row align-items-center">
         <div class="offset-md-3 col-md-10 ">
             <div class="form-group">
@@ -134,4 +136,20 @@ if ($formSubmitted) {
         </div>
     </div>
 </form>
+
+<script>
+
+    $(document).on('change', '#quoteType', function(e) {
+        console.log(this.options[e.target.selectedIndex].text);
+
+        var allowedTypes = ["Homeowners","Renters","Dwelling Fire including short-term rental / seasonal","Wind / Hail","Flood","Business Owners Policy / General Liability"];
+        var showOrHide = ( allowedTypes.includes( this.options[e.target.selectedIndex].text ) ? true : false );
+
+        $('#address-info').toggle(showOrHide);
+    });
+    $(document).ready( function() {
+        $('#address-info').toggle(false);
+    });
+
+</script>
 
