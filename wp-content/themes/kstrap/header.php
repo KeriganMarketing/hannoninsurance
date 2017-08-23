@@ -56,7 +56,7 @@ $phonenumber = (get_post_meta($frontpage, contact_information_phone_number, true
         <div class="row justify-content-center align-items-center">
             <div class="col col-lg-3 col-xl-2 text-center">
                 <a class="navbar-brand" href="/">
-                    <img src="<?php echo get_template_directory_uri() . '/img/hannon-logo.svg'; ?>" alt="Hannon Insurance" style="height:64px; max-width: 100%">
+                    <img src="<?php echo get_template_directory_uri() . '/img/hannon-logo.svg'; ?>" alt="Hannon Insurance" style="height:64px;">
                 </a>
             </div>
             <div class="col-12 col-xl-8 hidden-lg-down">
