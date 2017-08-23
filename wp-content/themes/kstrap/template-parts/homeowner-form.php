@@ -71,7 +71,7 @@ if ($formSubmitted) {
     <div class="row align-items-center">
         <label for="email" class="col-md-3 control-label text-md-right">Email Address<span class="req">*</span></label>
         <div class="col-md-5 form-group <?php echo(($youremail == '' && $_POST) || (!filter_var($youremail, FILTER_VALIDATE_EMAIL) && !preg_match('/@.+\./', $youremail) && $_POST) ? 'has-error' : '');  ?>">
-            <input type="text" class="form-control" value="<?php echo $youremail; ?>" name="youremail" required>
+            <input type="text" class="form-control" value="<?php echo $youremail; ?>" name="youremail" id="emailAddress" required>
         </div>
     </div>
 
@@ -129,9 +129,28 @@ if ($formSubmitted) {
     <div class="row align-items-center">
         <div class="offset-md-3 col-md-10 ">
             <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit Quote Request</button>
+                <button type="submit" class="btn btn-primary" id="form-submit-button">Submit Quote Request</button>
             </div>
         </div>
     </div>
 </form>
+<script>
+    $("#form-submit-button").on("click", function(e){
+        e.preventDefault();
+
+        var email = $("#emailAddress").val();
+        var check = validateEmail(email);
+
+        if(check){
+            $("#mainForm").submit();
+        }
+        else{
+            swal("Whoops!", "It looks like the email address you entered is invalid. Please enter a valid email address", "error");
+        }
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+        }
+    });
+</script>
 

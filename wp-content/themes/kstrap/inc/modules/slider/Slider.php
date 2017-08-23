@@ -4,94 +4,95 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if (! defined('ABSPATH')) {
+    exit;
+}
 
-class Slider {
+class Slider
+{
 
     /**
      * Slider constructor.
      */
-    function __construct() {
-
+    public function __construct()
+    {
     }
 
     /**
      * @return null
      */
-    public function createPostType() {
-
-        $slider = new Custom_Post_Type( 'Slide Image', array(
-            'supports'           => array( 'title', 'revisions' ),
+    public function createPostType()
+    {
+        $slider = new Custom_Post_Type('Slide Image', [
+            'supports'           => [ 'title', 'revisions' ],
             'menu_icon'          => 'dashicons-images-alt2',
-            'rewrite'            => array( 'with_front' => false ),
+            'rewrite'            => [ 'with_front' => false ],
             'has_archive'        => false,
             'menu_position'      => null,
             'public'             => false,
             'publicly_queryable' => false,
-        ) );
+        ]);
 
-        $slider->add_taxonomy( 'Slider' );
+        $slider->add_taxonomy('Slider');
 
-        $slider->add_meta_box( 'Slide Details', array(
+        $slider->add_meta_box('Slide Details', [
             'Photo File'         => 'image',
             'Headline'           => 'text',
             'Caption'            => 'text',
             'Alt Tag'            => 'text',
             'Link'               => 'text',
             'Open in New Window' => 'boolean',
-        ) );
+        ]);
 
         $slider->add_meta_box(
             'Photo Description',
-            array(
+            [
                 'HTML' => 'wysiwyg',
-            )
+            ]
         );
-
     }
 
     /**
      * @return null
      */
-    public function createAdminColumns() {
+    public function createAdminColumns()
+    {
 
         //TODO: make this work...
-
     }
 
     /**
      * @param slider ( post type category )
      * @return array
      */
-    public function getSlides( $category = '' ){
-
-        $request = array(
+    public function getSlides($category = '')
+    {
+        $request = [
             'posts_per_page' => - 1,
             'offset'         => 0,
             'order'          => 'ASC',
             'orderby'        => 'menu_order',
             'post_type'      => 'slide_image',
             'post_status'    => 'publish',
-        );
+        ];
 
-        if ( $category != '' ) {
-            $categoryarray        = array(
-                array(
+        if ($category != '') {
+            $categoryarray        = [
+                [
                     'taxonomy'         => 'slider',
                     'field'            => 'slug',
                     'terms'            => $category,
                     'include_children' => false,
-                ),
-            );
+                ],
+            ];
             $request['tax_query'] = $categoryarray;
         }
 
-        $slidelist = get_posts( $request );
+        $slidelist = get_posts($request);
 
-        $slideArray = array();
-        foreach ( $slidelist as $slide ){
-
-            array_push($slideArray, array(
+        $slideArray = [];
+        foreach ($slidelist as $slide) {
+            array_push($slideArray, [
                 'id'            => (isset($slide->ID)                               ? $slide->ID : null),
                 'name'          => (isset($slide->post_title)                       ? $slide->post_title : null),
                 'slug'          => (isset($slide->post_name)                        ? $slide->post_name : null),
@@ -104,28 +105,25 @@ class Slider {
                 'description'   => (isset($slide->photo_description_html)           ? $slide->photo_description_html : null),
                 'link'          => get_permalink($slide->ID),
 
-            ));
-
+            ]);
         }
 
         return $slideArray;
-
     }
 
     /**
      * @param slider ( post type category )
      * @return HTML
      */
-    public function getSlider($category = ''){
-
+    public function getSlider($category = '')
+    {
         $slides = $this->getSlides($category);
         $slider = '';
         $slidercontent = '';
         $indicators = '';
 
         $i = 0;
-        foreach($slides as $slide){
-
+        foreach ($slides as $slide) {
             $slidercontent .= '<div class="carousel-item full-bg '.($i == 0 ? ' active' : '').'" style="background-image:url('.$slide['photo'].')" role="option" >
                     <div class="carousel-caption d-md-block">'
                     . ($slide['headline'] != '' ? '<h2 class="slider-headline">'.$slide['headline'].'</h2>' : '')
@@ -135,7 +133,7 @@ class Slider {
                 </div>';
 
             $indicators .= '<li data-target="#carousel-' . $category[0]->slug . '" data-slide-to="' . $i . '" ';
-            if ( $i < 1 ) {
+            if ($i < 1) {
                 $indicators .= 'class="active"';
             }
             $indicators .= '></li>';
@@ -143,15 +141,15 @@ class Slider {
             $i++;
         }
 
-        $slider .= '    
+        $slider .= '
         <div id="carousel-' . $category . '" class="carousel slide carousel-fade" data-ride="carousel">
-            
+
             <ol class="carousel-indicators">' . $indicators . '</ol>
-            
+
             <div class="carousel-inner" role="listbox">
             ' . $slidercontent . '
             </div>
-            
+
             <a class="carousel-control-prev" href="#carousel-' . $category . '" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                      viewBox="0 0 4.5 8" style="enable-background:new 0 0 4.5 8;" xml:space="preserve">
@@ -166,11 +164,9 @@ class Slider {
                 </svg></span>
                 <span class="sr-only">Next</span>
             </a>
-            
+
         </div>';
 
         return $slider;
-
     }
-
 }
