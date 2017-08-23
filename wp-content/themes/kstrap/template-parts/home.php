@@ -23,8 +23,8 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
             <div class="row no-gutters">
                 <div id="quote-box" class="col-lg-5 col-xl-4 text-center">
                     <h2>GET A QUICK QUOTE</h2>
-                    <hr style="visibility: hidden;">
-                        <a class="btn btn-lg btn-secondary btn-pill" id="quote-request-submit" href="/quote-request">GET QUOTE</a>
+                    <p>Homeowners, Auto, Boat, Motorcycle and RV</p>
+                        <a class="btn btn-lg btn-secondary btn-pill" id="quote-request-submit" href="/quote-request">START HERE</a>
                 </div>
             </div>
         </div>

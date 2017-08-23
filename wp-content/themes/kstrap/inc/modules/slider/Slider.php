@@ -143,9 +143,6 @@ class Slider
 
         $slider .= '
         <div id="carousel-' . $category . '" class="carousel slide carousel-fade" data-ride="carousel">
-
-            <ol class="carousel-indicators">' . $indicators . '</ol>
-
             <div class="carousel-inner" role="listbox">
             ' . $slidercontent . '
             </div>

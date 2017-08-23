@@ -253,7 +253,7 @@ class BusinessListings {
                 if($listing['claims']){ $output .= '<p class="business-listing-claims"><span class="listing-label">claims:</span><a href="tel:'.$listing['claims'].'" >'.$listing['claims'].'</a></p>'; }
                 $output .= '</div>';
                 $output .= '<div class="col-md-2 text-center">';
-                if($listing['link']){ $output .= '<p class="visit-website"><a class="btn btn-sm btn-info" href="'.$listing['link'].'" target="_blank">visit website</a></p>'; }
+                if($listing['website']){ $output .= '<p class="visit-website"><a class="btn btn-sm btn-info" href="'.$listing['website'].'" target="_blank">visit website</a></p>'; }
                 $output .= '</div>';
                 $output .= '</div>';
                 $output .= '</div>';
