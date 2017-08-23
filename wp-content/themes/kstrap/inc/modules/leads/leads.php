@@ -18,7 +18,7 @@ class kmaLeads
     {
         date_default_timezone_set('America/New_York');
 
-        $this->adminEmail = 'daron@kerigan.com';
+        $this->adminEmail = 'asmith@hannoninsurance.com';
         $this->domain = 'hannoninsurance.com';
     }
 
