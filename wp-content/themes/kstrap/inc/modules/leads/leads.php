@@ -118,12 +118,13 @@ class kmaLeads
             'Name'              => $yourname,
             'Email Address'     => $youremail,
             'Phone Number'      => $phone,
-            'Address'           => $fullAddress,
             'Quote Type'        => $quoteType
         ];
 
+        if($input['youraddr1']!=''){ $emailvars['Address'] = $fullAddress; }
+
         $fontstyle          = 'font-family: sans-serif;';
-        $headlinestyle      = 'style="font-size:20px; '.$fontstyle.' color:#42BC7B;"';
+        $headlinestyle      = 'style="font-size:20px; '.$fontstyle.' color:#1D877F;"';
         $copystyle          = 'style="font-size:16px; '.$fontstyle.' color:#333;"';
         $labelstyle         = 'style="padding:4px 8px; background:#F7F6F3; border:1px solid #FFFFFF; font-weight:bold; '.$fontstyle.' font-size:14px; color:#4D4B47; width:150px;"';
         $datastyle          = 'style="padding:4px 8px; background:#F7F6F3; border:1px solid #FFFFFF; '.$fontstyle.' font-size:14px;"';
@@ -240,8 +241,8 @@ class kmaLeads
         $eol = "\r\n";
 
         //search for directory in active WP template
-        if (file_exists(get_template_directory().'/modules/leads/emailtemplate.php')) {
-            $emailTemplate = file_get_contents(get_template_directory().'/modules/leads/emailtemplate.php');
+        if (file_exists(wp_normalize_path(get_template_directory().'/inc/modules/leads/emailtemplate.php'))) {
+            $emailTemplate = file_get_contents(wp_normalize_path(get_template_directory().'/inc/modules/leads/emailtemplate.php'));
         } else {
             $emailTemplate = '<!doctype html>
                 <html>

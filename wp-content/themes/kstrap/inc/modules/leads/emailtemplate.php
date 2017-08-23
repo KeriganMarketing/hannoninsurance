@@ -7,13 +7,13 @@
 <table cellpadding="0" cellspacing="0" border="0" align="center" style="width:650px; background-color:#FFFFFF; margin:30px auto;" bgcolor="#FFFFFF" >
     <tbody>
     <tr>
-        <td style="padding:20px; border:1px solid #ddd; border-top:10px solid #26C0E6; border-bottom: #42BC7B solid 2px;" >
+        <td style="padding:20px; border:1px solid #ddd; border-top:10px solid #219C93; border-bottom: #C3B592 solid 2px;" >
 				    <!--[content]-->
         </td>
     </tr>
     </tbody>
 </table>
-<p style="text-align:center; color:#999; font-family:sans-serif; font-size:12px;">This email was sent by the <a href="http://beachybeach.com">Beachy Beach Website</a>.</p>
-<p style="text-align:center; margin:20px 0 0;"><a href="http://beachybeach.com"><img src="http://bb.kmastage.com/wp-content/themes/kmaidx/img/beachy-beach-logo.png" style="width:100px;" width="100" alt="Beachy Beach Real Estate" ></a></p>
+<p style="text-align:center; color:#999; font-family:sans-serif; font-size:12px;">This email was sent by <a href="http://hannoninsurance.com">hannoninsurance.com</a>.</p>
+<p style="text-align:center; color:#999; font-family:sans-serif; font-size:12px;">&copy; 2017 Hannon Insurance.</p>
 </body>
 </html>

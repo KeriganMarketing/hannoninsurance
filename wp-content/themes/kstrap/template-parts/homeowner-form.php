@@ -122,7 +122,7 @@ if ($formSubmitted) {
                     </select>
                 </div>
                 <div class="col-xs-4 col-md-2 form-group <?php echo($yourzip == '' && $_POST ? 'has-error' : ''); ?>" id="zip">
-                    <input type="text" class="form-control" value="<?php echo($yourzip!='' && $_POST ? $yourzip : ''); ?>" placeholder="32448" name="yourzip" required>
+                    <input type="text" class="form-control" value="<?php echo($yourzip!='' && $_POST ? $yourzip : ''); ?>" placeholder="32456" name="yourzip" >
                 </div>
             </div>
         </div>
