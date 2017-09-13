@@ -71,7 +71,7 @@ if ($formSubmitted) {
     <div class="row align-items-center">
         <label for="email" class="col-md-3 control-label text-md-right">Email Address<span class="req">*</span></label>
         <div class="col-md-5 form-group <?php echo(($youremail == '' && $_POST) || (!filter_var($youremail, FILTER_VALIDATE_EMAIL) && !preg_match('/@.+\./', $youremail) && $_POST) ? 'has-error' : '');  ?>">
-            <input type="email" class="form-control" value="<?php echo $youremail; ?>" name="youremail" required>
+            <input type="email" class="form-control" value="<?php echo $youremail; ?>" name="youremail" id="emailAddress" required>
         </div>
     </div>
 
