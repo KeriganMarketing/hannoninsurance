@@ -103,7 +103,7 @@ class kmaLeads
             'to'      => $this->adminEmail,
             'from'    => get_bloginfo().' <noreply@'.$this->domain.'>',
             'subject' => 'Quote request from website',
-            'bcc'     => 'support@kerigan.com',
+            'bcc'     => 'support@kerigan.com, jack@kerigan.com',
             'replyto' => $youremail
         ];
 
